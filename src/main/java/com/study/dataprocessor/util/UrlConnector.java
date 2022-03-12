@@ -1,5 +1,6 @@
 package com.study.dataprocessor.util;
 
+import com.study.dataprocessor.exception.UrlConnectionError;
 import java.io.IOException;
 import lombok.Getter;
 import org.jsoup.Jsoup;
@@ -13,7 +14,7 @@ public class UrlConnector {
         try {
             return Jsoup.connect(url).get().html();
         } catch (IOException e) {
-            throw new IllegalArgumentException("접근할 수 없는 url입니다.");
+            throw new UrlConnectionError("접근할 수 없는 url입니다.");
         }
     }
 
