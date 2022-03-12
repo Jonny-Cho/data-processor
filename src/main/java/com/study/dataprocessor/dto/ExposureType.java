@@ -1,7 +1,6 @@
 package com.study.dataprocessor.dto;
 
 import java.util.function.Function;
-import lombok.Getter;
 
 public enum ExposureType {
     REMOVE_HTML(str -> str.replaceAll(Constants.REMOVE_TAG_PATTERN, Constants.EMPTY)),
