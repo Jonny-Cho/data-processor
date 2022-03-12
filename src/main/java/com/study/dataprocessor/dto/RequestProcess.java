@@ -5,6 +5,6 @@ import lombok.Getter;
 @Getter
 public class RequestProcess {
     private String url;
-    private String exposureType;
+    private ExposureType exposureType;
     private Integer unitCount;
 }
