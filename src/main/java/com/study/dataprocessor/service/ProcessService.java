@@ -1,5 +1,6 @@
 package com.study.dataprocessor.service;
 
+import com.study.dataprocessor.dto.ExposureType;
 import com.study.dataprocessor.dto.OutputUnit;
 import com.study.dataprocessor.dto.RequestProcess;
 import com.study.dataprocessor.dto.ResponseProcess;
@@ -19,10 +20,14 @@ public class ProcessService {
 
     public ResponseProcess parse(final RequestProcess request) {
         final String html = urlConnector.getHtml(request.getUrl());
-        final String exposedHtml = request.getExposureType().getExposedHtml(html);
+        return parse(html, request.getExposureType(), request.getUnitCount());
+    }
+
+    public ResponseProcess parse(final String html, final ExposureType exposureType, final int unitCount) {
+        final String exposedHtml = exposureType.getExposedHtml(html);
         final Arranger rearrange = arranger.rearrange(exposedHtml);
         final String rearrangedStr = interleaver.interleave(rearrange);
-        final OutputUnit outputUnit = new OutputUnit(rearrangedStr, request.getUnitCount());
+        final OutputUnit outputUnit = new OutputUnit(rearrangedStr, unitCount);
         return new ResponseProcess(outputUnit);
     }
 }
