@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 import com.study.dataprocessor.dto.ExposureType;
-import com.study.dataprocessor.dto.RequestProcess;
 import com.study.dataprocessor.dto.ResponseProcess;
 import com.study.dataprocessor.util.Arranger;
 import com.study.dataprocessor.util.Interleaver;

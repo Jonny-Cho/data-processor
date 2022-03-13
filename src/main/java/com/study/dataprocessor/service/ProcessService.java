@@ -23,7 +23,7 @@ public class ProcessService {
         return parse(html, request.getExposureType(), request.getUnitCount());
     }
 
-    public ResponseProcess parse(final String html, final ExposureType exposureType, final int unitCount) {
+    ResponseProcess parse(final String html, final ExposureType exposureType, final int unitCount) {
         final String exposedHtml = exposureType.getExposedHtml(html);
         final Arranger rearrange = arranger.rearrange(exposedHtml);
         final String rearrangedStr = interleaver.interleave(rearrange);
